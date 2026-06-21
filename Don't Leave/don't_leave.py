@@ -25,19 +25,14 @@ SECTION_COLOR = (60, 120, 140)
 GLOW_COLOR = (0, 220, 255)         
 DIM_COLOR_FACTOR = 0.35  
 
-# =============================================
-#  SYNC ADJUSTMENT
-#  If lyrics appear TOO EARLY  -> increase this (e.g. +0.5)
-#  If lyrics appear TOO LATE   -> decrease this (e.g. -0.5)
-# =============================================
+# --- SYNC ADJUSTMENT ---
+
 SYNC_OFFSET = 0.2
 
 SONG_START = 116.0
 
-# =============================================
 #  LYRICS WITH PRECISE TIMESTAMPS:
 # (start_sec, end_sec, text, style) | | {style: "main", "whisper", "slow_fade", "section"}
-# =============================================
 
 lyrics = [
     # --- PRE-CHORUS ---
@@ -68,9 +63,8 @@ lyrics = [
     (153.5, 155.5, "(Oh Baby, baby)",                                               "whisper"),
 ]
 
-# =============================================
-#  DISPLAY SETTINGS
-# =============================================
+# --- DISPLAY SETTINGS ---
+
 LINE_HEIGHT = 58          # vertical spacing between lines
 START_Y = 100             # first line Y position
 MAX_VISIBLE_LINES = 8     # max lines on screen before oldest fades
@@ -137,10 +131,8 @@ def draw_typing_text(text, visible_chars, font, color, alpha, pos):
         shown_rect = shown_surf.get_rect(topleft=(start_x, pos - full_height // 2))
         screen.blit(shown_surf, shown_rect)
 
+# --- DISPLAY STATE ---
 
-# =============================================
-#  DISPLAY STATE
-# =============================================
 class DisplayLine:
     """A line currently visible on screen with letter-by-letter typing."""
     def __init__(self, text, style, y_pos, start_time, end_time, is_active=True):
